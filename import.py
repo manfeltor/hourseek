@@ -5,21 +5,20 @@ import pandas as pd, re, sqlite3
 
 def openfile(fpath):
 
-    """turns file into pd data frames.
+    r"""turns file into pd data frames.
     this function imports file from given file path as string and returns a pandas data frame for the rest of the code.
 
     suports "xls", "xlsx", "xlsm", "xlsb", "odf", "ods", "odt" extentions for worksheets
     as well as csv, json, db and htmln for others.
 
     example:
-    openfile("C:\Users\user1\folder...... \\myfile.xlsx)
+    openfile("C:\Users\user1\folder...... \myfile.xlsx)
     would return the same database as the file, but pandas library workable.
 
     please make sure of this:
     * your file does not have corrupted info
-    * the column header of the column that contains the time lapse has a valid header
-    written in ASCII characters
-    """
+    * the column header of the column that contains the time-lapse has a valid header
+    written in ASCII characters"""
 
     xlExtensions = ("xls", "xlsx", "xlsm", "xlsb", "odf", "ods", "odt")
     prex = re.compile(r"(?P<ext>\w+).(\w+)")
@@ -40,11 +39,3 @@ def openfile(fpath):
         print("your file is not supported or there is a problem with the path, returned NONE")
         return None
     return df
-
-
-dfPath = input("please insert the path of the file you want to extract the time intervals from: ")
-
-dfBase = openfile(dfPath)
-
-column0 = input("please type the header name of the column that contains the time intervals: ")
-
