@@ -36,6 +36,5 @@ def openfile(fpath):
     elif fextension == "html":
         df = pd.read_html(fpath)
     else:
-        print("your file is not supported or there is a problem with the path, returned NONE")
-        return None
+        raise ValueError("File extension not supported. Please provide a valid file.")
     return df
