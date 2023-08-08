@@ -28,7 +28,6 @@ def hourleek(df: pd.DataFrame, column: str) -> pd.DataFrame:
             dic1["sab_12"].append("sin match")
         else:
             if "sab" in i:
-                s1 = prbRe.search(i[:i.lower().index("sab")])
                 if prbRe.search(i[:i.lower().index("sab")]) != None:
                     i = i[:i.lower().index("sab")].strip()
                     sabRaw = i[i.lower().index("sab"):].strip()
